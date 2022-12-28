@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>programa</title>
+  <style>
+    body {
+      font: normal 10pt Arial;
+      color: rgb(0, 150, 96);
+    }
+  </style>
+</head>
+<body>
+<script>
+    function TestarSenha(senhateste, senha, c){
+      if (senhateste === senha){
+        window.alert('logado com sucesso!')
+        return false
+      }else{
+        window.alert('senha incorreta!')
+        var escolha = window.confirm('você deseja tenta novamente?')
+        if (escolha == false || c == 3) {
+       	 if (c == 3) {
+       	  	  window.alert('Muitas tentativas de acesso!')
+       	    }
+      	  return 404
+        }
+      return escolha
+      }
+    }
+    
+    lock = true
+    var cont = 0
+    while (lock == true){
+      lock = TestarSenha(window.prompt('Digite a senha:'), 'pagina123', cont)
+      cont += 1
+    }
+    
+    if (lock == 404) {
+      window.location.href = 'erro/index.html'
+    }else{
+      var nome = window.prompt('digite seu nome:')
+      document.write(`<p>Bem Vindo! <strong>${nome}.</strong> </p>`)
+    }
+  </script>
+  <p>O site não tem nada de confidencial, ele apenas foi criado para fins educativos.</p>
+  <p>Criador: João Victor Sanches Andrade</p>
+</body>
+
+</html>
